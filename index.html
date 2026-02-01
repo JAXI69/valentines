@@ -6,18 +6,41 @@
 <title>Pentru Maria 💙</title>
 
 <style>
-    body {
+    /* Fix scroll lateral + stabilitate pe mobil */
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
         margin: 0;
+        padding: 0;
+        touch-action: pan-y;
+        position: relative;
         font-family: "Segoe UI", sans-serif;
+        text-align: center;
         background: radial-gradient(circle at top, #2f6fb3 0, #0a1f3c 45%, #050814 100%);
         color: white;
-        text-align: center;
         height: 100vh;
-        overflow: hidden;
-        position: relative;
     }
+    html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    touch-action: pan-y;
+}
+    .lily {
+    max-width: 40vw;
+}
+    #noBtn {
+    position: relative;
+    will-change: transform;
+}
+    .card {
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    /* Glow layer */
     .glow {
         position: absolute;
         width: 500px;
@@ -38,8 +61,8 @@
         backdrop-filter: blur(14px);
         box-shadow: 0 0 35px rgba(0,0,0,0.7);
         max-width: 430px;
-        margin: auto;
-        margin-top: 10vh;
+        width: 90%;
+        margin: 10vh auto 0 auto;
         animation: fadeIn 1s ease;
         position: relative;
         z-index: 2;
@@ -64,6 +87,7 @@
         transition: 0.25s;
         position: relative;
         box-shadow: 0 0 12px rgba(77,166,255,0.7);
+        will-change: transform;
     }
 
     button:hover {
@@ -77,14 +101,14 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Crini mari */
     .lily {
         position: absolute;
-        width: 140px;
-        opacity: 0.3;
+        width: 120px;
+        opacity: 0.25;
         animation: float 7s ease-in-out infinite;
         pointer-events: none;
         filter: drop-shadow(0 0 10px rgba(120,180,255,0.7));
+        max-width: 40vw;
     }
 
     @keyframes float {
@@ -95,14 +119,13 @@
 
     .l1 { top: 4%; left: 3%; }
     .l2 { bottom: 6%; right: 4%; animation-delay: 2s; }
-    .l3 { top: 10%; right: 15%; width: 110px; opacity: 0.22; animation-delay: 1s; }
-    .l4 { bottom: 12%; left: 12%; width: 110px; opacity: 0.22; animation-delay: 3s; }
+    .l3 { top: 10%; right: 15%; width: 100px; opacity: 0.22; animation-delay: 1s; }
+    .l4 { bottom: 12%; left: 12%; width: 100px; opacity: 0.22; animation-delay: 3s; }
 
-    /* Flori mici / petale */
     .petal {
         position: absolute;
-        width: 26px;
-        height: 26px;
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
         background: radial-gradient(circle, #9fd5ff 0, #4b8fd1 60%, transparent 70%);
         opacity: 0.7;
@@ -115,7 +138,6 @@
         100% { transform: translateY(220px) translateX(40px) scale(1.1); opacity: 0; }
     }
 
-    /* Inimioare */
     .heart {
         position: absolute;
         color: #9fd5ff;
@@ -130,80 +152,47 @@
         100% { transform: translateY(-260px) scale(1.7); opacity: 0; }
     }
 
-    /* Mic text sub card */
     .subtext {
         margin-top: 12px;
         font-size: 13px;
         color: #c7e3ff;
         opacity: 0.8;
     }
-    @media (max-width: 480px) {
-    .card {
-        padding: 30px 20px;
-        margin-top: 8vh;
-        max-width: 90%;
-        font-size: 16px;
-    }
 
-    h1 {
-        font-size: 22px;
-        margin-bottom: 20px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 10px 20px;
-        margin: 8px;
-    }
-
-    .subtext {
-        font-size: 12px;
-    }
-
-    .lily {
-        width: 100px !important;
-        opacity: 0.2 !important;
-    }
-
-    .heart {
-        font-size: 20px !important;
-    }
-
-    .petal {
-        width: 20px;
-        height: 20px;
-    }
-}
-    /* Mesaj secret pentru mobil */
-.secret-message {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.15);
-    padding: 14px 18px;
-    border-radius: 14px;
-    backdrop-filter: blur(10px);
-    color: #cfe8ff;
-    font-size: 14px;
-    box-shadow: 0 0 12px rgba(120,180,255,0.7);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.6s ease;
-    z-index: 999;
-}
-
-/* Doar pe mobil */
-@media (max-width: 480px) {
+    /* Zona secretă pentru mobil */
     .secret-zone {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 120px;
-    height: 120px;
-    background: transparent;
-    z-index: 50;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 120px;
+        height: 120px;
+        background: transparent;
+        z-index: 50;
     }
-}
+
+    .secret-message {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255,255,255,0.15);
+        padding: 14px 18px;
+        border-radius: 14px;
+        backdrop-filter: blur(10px);
+        color: #cfe8ff;
+        font-size: 14px;
+        box-shadow: 0 0 12px rgba(120,180,255,0.7);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.6s ease;
+        z-index: 999;
+    }
+
+    @media (max-width: 480px) {
+        h1 { font-size: 22px; }
+        button { font-size: 16px; padding: 10px 20px; }
+        .subtext { font-size: 12px; }
+        .lily { width: 90px; }
+    }
 </style>
 </head>
 
@@ -211,13 +200,11 @@
 
 <div class="glow"></div>
 
-<!-- Mai mulți crini -->
+<!-- Crini -->
 <img src="image-removebg-preview (1).png" class="lily l1">
 <img src="image-removebg-preview.png" class="lily l2">
 <img src="image-removebg-preview (2).png" class="lily l3">
 <img src="image-removebg-preview (3).png" class="lily l4">
-
-<!-- Petale / flori mici generate din JS -->
 
 <div class="card" id="card">
     <h1 id="text">Ești în viață, Maria?</h1>
@@ -225,34 +212,31 @@
     <button onclick="nextStep('no')" id="noBtn">Nu</button>
     <div class="subtext" id="subtext">Promit că e ceva drăguț, nu scary. 💙</div>
 </div>
+
 <div class="secret-zone"></div>
 <div class="secret-message" id="secretMessage">
     Maria… dacă ai găsit asta, înseamnă că ești specială pentru mine. 💙
 </div>
+
 <script>
-    const noBtn = document.getElementById("noBtn");
+const noBtn = document.getElementById("noBtn");
 const card = document.getElementById("card");
 const subtext = document.getElementById("subtext");
-
-let state = "start"; 
-// poate fi: "start", "valentine", "no-spam"
+let state = "start";
 
 noBtn.addEventListener("mouseover", () => {
     if (state !== "valentine") return;
-
     const maxX = card.clientWidth - 170;
     const maxY = card.clientHeight - 140;
-
     const x = Math.random() * maxX - maxX / 2;
     const y = Math.random() * maxY - maxY / 2;
-
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    noBtn.style.position = "relative";
 });
 
 function nextStep(answer) {
     const text = document.getElementById("text");
 
-    // RESET MAGIC: dacă apasă "Da" în orice stare greșită → revine la început
     if (answer === "yes" && state === "no-spam") {
         resetToStart();
         return;
@@ -290,18 +274,14 @@ function resetToStart() {
     const text = document.getElementById("text");
     text.innerText = "Ești în viață, Maria?";
     subtext.innerText = "Promit că e ceva drăguț, nu scary. 💙";
-
     noBtn.style.display = "inline-block";
     document.getElementById("yesBtn").style.display = "inline-block";
-
     noBtn.style.transform = "translate(0,0)";
-
     state = "start";
 }
 
 function spawnHearts() {
     romanticFinal();
-
     for (let i = 0; i < 40; i++) {
         const heart = document.createElement("div");
         heart.classList.add("heart");
@@ -312,67 +292,35 @@ function spawnHearts() {
         heart.style.fontSize = (22 + Math.random() * 18) + "px";
         heart.style.animationDelay = Math.random() * 2 + "s";
         document.body.appendChild(heart);
-
         setTimeout(() => heart.remove(), 7000);
     }
 }
+
 function romanticFinal() {
-    const card = document.getElementById("card");
     const text = document.getElementById("text");
     const subtext = document.getElementById("subtext");
 
-    // Card romantic
     card.style.transition = "1.5s ease";
     card.style.background = "rgba(255,255,255,0.15)";
     card.style.boxShadow = "0 0 45px rgba(120,180,255,0.9)";
     card.style.border = "1px solid rgba(180,220,255,0.7)";
     card.style.transform = "scale(1.08)";
 
-    // Text poetic
     setTimeout(() => {
         text.innerHTML = "Maria…<br>Mulțumesc că ai spus „Da”. 💙";
         subtext.innerHTML = "Promit că o să fie o zi specială, doar pentru tine.";
     }, 800);
-
-    // Flori care se deschid
-    for (let i = 0; i < 12; i++) {
-        const flower = document.createElement("img");
-        flower.src = "image-removebg-preview (5).png"; // Imaginea unui crin deschis
-        flower.classList.add("lily");
-        flower.style.width = (80 + Math.random() * 80) + "px";
-        flower.style.opacity = 0.18 + Math.random() * 0.2;
-        flower.style.left = Math.random() * window.innerWidth + "px";
-        flower.style.top = Math.random() * window.innerHeight + "px";
-        flower.style.animationDuration = (6 + Math.random() * 4) + "s";
-        document.body.appendChild(flower);
-    }
 }
+
 const secretZone = document.querySelector(".secret-zone");
 const secretMessage = document.getElementById("secretMessage");
-
 let secretShown = false;
 
 secretZone.addEventListener("touchstart", () => {
     if (secretShown) return;
-
     secretShown = true;
     secretMessage.style.opacity = "1";
     secretMessage.style.transform = "translateY(0)";
-
-    // inimioare speciale
-    for (let i = 0; i < 15; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "💙";
-        heart.style.left = (window.innerWidth - 60) + "px";
-        heart.style.bottom = "20px";
-        heart.style.animationDuration = (3 + Math.random() * 2) + "s";
-        heart.style.fontSize = (18 + Math.random() * 12) + "px";
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 5000);
-    }
-
     setTimeout(() => {
         secretMessage.style.opacity = "0";
         secretMessage.style.transform = "translateY(20px)";
@@ -382,4 +330,3 @@ secretZone.addEventListener("touchstart", () => {
 
 </body>
 </html>
-
