@@ -207,7 +207,7 @@
 </head>
 
 <body>
-
+<audio id="bgMusic" src="The_Birds_Pt._2.mp3" autoplay loop></audio>
 <div class="glow"></div>
 
 <!-- Crini -->
@@ -218,15 +218,15 @@
 
 <div class="card" id="card">
     <img src="image-removebg-preview (7).png" class="card-flower">
-    <h1 id="text">Maria traiești??</h1>
+    <h1 id="text">Ești în viață, Maria?</h1>
     <button onclick="nextStep('yes')" id="yesBtn">Da</button>
     <button onclick="nextStep('no')" id="noBtn">Nu</button>
-    <div class="subtext" id="subtext">Stiu ca o faci 💙</div>
+    <div class="subtext" id="subtext">Știu că ești btw</div>
 </div>
 
 <div class="secret-zone"></div>
 <div class="secret-message" id="secretMessage">
-    Maria dacă ai găsit asta sa stii ca insemni foarte mult pentru mine. 💙
+    Maria dacă ai găsit asta să știi că însemni foarte mult pentru mine. 💙
 </div>
 
 <script>
@@ -234,6 +234,12 @@ const noBtn = document.getElementById("noBtn");
 const card = document.getElementById("card");
 const subtext = document.getElementById("subtext");
 let state = "start";
+document.addEventListener("click", () => {
+    const music = document.getElementById("bgMusic");
+    if (music.paused) {
+        music.play();
+    }
+}, { once: true });
 
 noBtn.addEventListener("mouseover", () => {
     if (state !== "valentine") return;
@@ -255,12 +261,12 @@ function nextStep(answer) {
 
     if (state === "start") {
         if (answer === "yes") {
-            text.innerText = "Atunci... vrei sa fii valentinul meu?";
-            subtext.innerText = "Nu accept refuzuri. 💙";
+            text.innerText = "Atunci vrei sa fii valentina mea?";
+            subtext.innerText = "Nu accept refuzuri amor";
             state = "valentine";
         } else {
             text.innerText = "Atunci cum citești asta, lil bro?";
-            subtext.innerText = "Stop playing games și apasă „Da” ca să continuăm. 💙";
+            subtext.innerText = "Stop playing games și apasă „Da” ca să continuăm.";
             state = "no-spam";
         }
         return;
@@ -275,8 +281,8 @@ function nextStep(answer) {
             state = "final";
 
         } else {
-            text.innerText = "Nu poți spune nu… butonul fuge 😄";
-            subtext.innerText = "Încearcă să-l prinzi, dacă poți.";
+            text.innerText = "Nu exista nu ";
+            subtext.innerText = "Încearcă să-l prinzi, dacă poți 😘";
             state = "no-spam";
         }
     }
@@ -285,7 +291,7 @@ function nextStep(answer) {
 function resetToStart() {
     const text = document.getElementById("text");
     text.innerText = "Ești în viață, Maria?";
-    subtext.innerText = "Promit că e ceva drăguț, nu scary. 💙";
+    subtext.innerText = "Știu că ești btw";
     noBtn.style.display = "inline-block";
     document.getElementById("yesBtn").style.display = "inline-block";
     noBtn.style.transform = "translate(0,0)";
@@ -319,8 +325,8 @@ function romanticFinal() {
     card.style.transform = "scale(1.2)";
 
     setTimeout(() => {
-        text.innerHTML = "Mă bucur ca ai spus da. 💙";
-        subtext.innerHTML = "De-abia astept sa petrecem ziua asta împreună! 😊";
+        text.innerHTML = "Așa și trebuia să răspunzi da fuq! ";
+        subtext.innerHTML = "De-abia aștept să petrecem ziua asta împreună my love! 😊";
     }, 0);
 }
 
@@ -342,4 +348,3 @@ secretZone.addEventListener("touchstart", () => {
 
 </body>
 </html>
-
