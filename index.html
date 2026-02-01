@@ -193,6 +193,16 @@
         .subtext { font-size: 12px; }
         .lily { width: 90px; }
     }
+    .card-flower {
+    position: absolute;
+    top: -50px;        /* cât de sus iese din card */
+    right: -30px;      /* cât de mult iese în dreapta */
+    width: 100px;       /* mărimea florii */
+    opacity: 0.9;     /* să fie subtilă */
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px rgba(120,180,255,0.7));
+    /*animation: float 3s ease-in-out infinite;*/
+}
 </style>
 </head>
 
@@ -207,6 +217,7 @@
 <img src="image-removebg-preview (3).png" class="lily l4">
 
 <div class="card" id="card">
+    <img src="image-removebg-preview (6).png" class="card-flower">
     <h1 id="text">Maria traiești??</h1>
     <button onclick="nextStep('yes')" id="yesBtn">Da</button>
     <button onclick="nextStep('no')" id="noBtn">Nu</button>
