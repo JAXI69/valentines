@@ -9,154 +9,377 @@
     body {
         margin: 0;
         font-family: "Segoe UI", sans-serif;
-        background: linear-gradient(135deg, #0a1f3c, #1e4f7b);
+        background: radial-gradient(circle at top, #2f6fb3 0, #0a1f3c 45%, #050814 100%);
         color: white;
         text-align: center;
         height: 100vh;
         overflow: hidden;
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.12);
-        padding: 40px;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 25px rgba(0,0,0,0.5);
-        max-width: 420px;
-        margin: auto;
-        margin-top: 10vh;
-        animation: fadeIn 1s ease;
-        position: relative;
-        z-index: 1;
-    }
-
-    h1 {
-        margin-bottom: 30px;
-        font-size: 28px;
-    }
-
-    button {
-        background: #4da6ff;
-        border: none;
-        padding: 12px 25px;
-        margin: 10px;
-        border-radius: 10px;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
-        transition: 0.3s;
         position: relative;
     }
 
-    button:hover {
-        background: #1a8cff;
-        transform: scale(1.05);
-    }
-
-    /* Crinii */
-    .lily {
-        position: fixed;
-        width: 140px;
-        opacity: 0.25;
-        animation: float 6s ease-in-out infinite;
+    /* Glow layer */
+    .glow {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(102,194,255,0.35), transparent 60%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(2px);
         pointer-events: none;
         z-index: 0;
     }
 
+    .card {
+        background: rgba(10, 25, 50, 0.85);
+        padding: 40px 30px;
+        border-radius: 24px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 0 35px rgba(0,0,0,0.7);
+        max-width: 430px;
+        margin: auto;
+        margin-top: 10vh;
+        animation: fadeIn 1s ease;
+        position: relative;
+        z-index: 2;
+        border: 1px solid rgba(150, 200, 255, 0.4);
+    }
+
+    h1 {
+        margin-bottom: 30px;
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    button {
+        background: linear-gradient(135deg, #4da6ff, #7fc9ff);
+        border: none;
+        padding: 12px 25px;
+        margin: 10px;
+        border-radius: 999px;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.25s;
+        position: relative;
+        box-shadow: 0 0 12px rgba(77,166,255,0.7);
+    }
+
+    button:hover {
+        background: linear-gradient(135deg, #1a8cff, #66b8ff);
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 0 18px rgba(102,184,255,0.9);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Crini mari */
+    .lily {
+        position: absolute;
+        width: 140px;
+        opacity: 0.3;
+        animation: float 7s ease-in-out infinite;
+        pointer-events: none;
+        filter: drop-shadow(0 0 10px rgba(120,180,255,0.7));
+    }
+
     @keyframes float {
         0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
+        50% { transform: translateY(-18px); }
         100% { transform: translateY(0px); }
     }
 
-    .l1 { top: 5%; left: 5%; }
-    .l2 { bottom: 5%; right: 5%; animation-delay: 2s; }
+    .l1 { top: 4%; left: 3%; }
+    .l2 { bottom: 6%; right: 4%; animation-delay: 2s; }
+    .l3 { top: 10%; right: 15%; width: 110px; opacity: 0.22; animation-delay: 1s; }
+    .l4 { bottom: 12%; left: 12%; width: 110px; opacity: 0.22; animation-delay: 3s; }
+
+    /* Flori mici / petale */
+    .petal {
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #9fd5ff 0, #4b8fd1 60%, transparent 70%);
+        opacity: 0.7;
+        animation: drift 10s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes drift {
+        0% { transform: translateY(0) translateX(0) scale(0.9); opacity: 0.9; }
+        100% { transform: translateY(220px) translateX(40px) scale(1.1); opacity: 0; }
+    }
 
     /* Inimioare */
     .heart {
         position: absolute;
-        color: #66c2ff;
-        font-size: 25px;
+        color: #9fd5ff;
+        font-size: 24px;
         animation: rise 4s linear infinite;
-        opacity: 0.8;
+        opacity: 0.9;
+        text-shadow: 0 0 8px rgba(120,190,255,0.9);
     }
 
     @keyframes rise {
         0% { transform: translateY(0) scale(1); opacity: 1; }
-        100% { transform: translateY(-300px) scale(1.8); opacity: 0; }
+        100% { transform: translateY(-260px) scale(1.7); opacity: 0; }
     }
+
+    /* Mic text sub card */
+    .subtext {
+        margin-top: 12px;
+        font-size: 13px;
+        color: #c7e3ff;
+        opacity: 0.8;
+    }
+    @media (max-width: 480px) {
+    .card {
+        padding: 30px 20px;
+        margin-top: 8vh;
+        max-width: 90%;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin: 8px;
+    }
+
+    .subtext {
+        font-size: 12px;
+    }
+
+    .lily {
+        width: 100px !important;
+        opacity: 0.2 !important;
+    }
+
+    .heart {
+        font-size: 20px !important;
+    }
+
+    .petal {
+        width: 20px;
+        height: 20px;
+    }
+}
+/* Mesaj secret pentru mobil */
+.secret-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.15);
+    padding: 14px 18px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    color: #cfe8ff;
+    font-size: 14px;
+    box-shadow: 0 0 12px rgba(120,180,255,0.7);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+    z-index: 999;
+}
+
+/* Doar pe mobil */
+@media (max-width: 480px) {
+    .secret-zone {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        z-index: 50;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- Crini FUNCȚIONALI -->
-<img src="https://i.imgur.com/6YV1Z4H.png" class="lily l1">
-<img src="https://i.imgur.com/6YV1Z4H.png" class="lily l2">
+<div class="glow"></div>
+
+<!-- Mai mulți crini -->
+<img src="image-removebg-preview (1).png" class="lily l1">
+<img src="image-removebg-preview.png" class="lily l2">
+<img src="image-removebg-preview (2).png" class="lily l3">
+<img src="image-removebg-preview (3).png" class="lily l4">
+
+<!-- Petale / flori mici generate din JS -->
 
 <div class="card" id="card">
     <h1 id="text">Ești în viață, Maria?</h1>
     <button onclick="nextStep('yes')" id="yesBtn">Da</button>
     <button onclick="nextStep('no')" id="noBtn">Nu</button>
+    <div class="subtext" id="subtext">Promit că e ceva drăguț, nu scary. 💙</div>
 </div>
-
+<div class="secret-zone"></div>
+<div class="secret-message" id="secretMessage">
+    Maria… dacă ai găsit asta, înseamnă că ești specială pentru mine. 💙
+</div>
 <script>
     const noBtn = document.getElementById("noBtn");
+const card = document.getElementById("card");
+const subtext = document.getElementById("subtext");
+
+let state = "start"; 
+// poate fi: "start", "valentine", "no-spam"
+
+noBtn.addEventListener("mouseover", () => {
+    if (state !== "valentine") return;
+
+    const maxX = card.clientWidth - 170;
+    const maxY = card.clientHeight - 140;
+
+    const x = Math.random() * maxX - maxX / 2;
+    const y = Math.random() * maxY - maxY / 2;
+
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+function nextStep(answer) {
+    const text = document.getElementById("text");
+
+    // RESET MAGIC: dacă apasă "Da" în orice stare greșită → revine la început
+    if (answer === "yes" && state === "no-spam") {
+        resetToStart();
+        return;
+    }
+
+    if (state === "start") {
+        if (answer === "yes") {
+            text.innerText = "Maria, ai vrea să fii Valentinul meu?";
+            subtext.innerText = "Gândește-te bine… dar să știi că butonul „Nu” are alte planuri. 😄";
+            state = "valentine";
+        } else {
+            text.innerText = "Atunci cum citești asta, lil bro?";
+            subtext.innerText = "Stop playing games și apasă „Da” ca să continuăm. 💙";
+            state = "no-spam";
+        }
+        return;
+    }
+
+    if (state === "valentine") {
+        if (answer === "yes") {
+            text.innerText = "Yay! Abia aștept să te văd, Maria 💙";
+            subtext.innerText = "Serios acum, m-ai făcut foarte fericit(ă).";
+            spawnHearts();
+            noBtn.style.display = "none";
+            document.getElementById("yesBtn").style.display = "none";
+        } else {
+            text.innerText = "Nu poți spune nu… butonul fuge 😄";
+            subtext.innerText = "Încearcă să-l prinzi, dacă poți.";
+            state = "no-spam";
+        }
+    }
+}
+
+function resetToStart() {
+    const text = document.getElementById("text");
+    text.innerText = "Ești în viață, Maria?";
+    subtext.innerText = "Promit că e ceva drăguț, nu scary. 💙";
+
+    noBtn.style.display = "inline-block";
+    document.getElementById("yesBtn").style.display = "inline-block";
+
+    noBtn.style.transform = "translate(0,0)";
+
+    state = "start";
+}
+
+function spawnHearts() {
+    romanticFinal();
+
+    for (let i = 0; i < 40; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💙";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "-20px";
+        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+        heart.style.fontSize = (22 + Math.random() * 18) + "px";
+        heart.style.animationDelay = Math.random() * 2 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+    }
+}
+function romanticFinal() {
     const card = document.getElementById("card");
+    const text = document.getElementById("text");
+    const subtext = document.getElementById("subtext");
 
-    // Butonul "Nu" fuge, dar rămâne în card
-    noBtn.addEventListener("mouseover", () => {
-        const text = document.getElementById("text").innerText;
-        if (!text.includes("Valentinul meu")) return;
+    // Card romantic
+    card.style.transition = "1.5s ease";
+    card.style.background = "rgba(255,255,255,0.15)";
+    card.style.boxShadow = "0 0 45px rgba(120,180,255,0.9)";
+    card.style.border = "1px solid rgba(180,220,255,0.7)";
+    card.style.transform = "scale(1.08)";
 
-        const maxX = card.clientWidth - 150;
-        const maxY = card.clientHeight - 150;
+    // Text poetic
+    setTimeout(() => {
+        text.innerHTML = "Maria…<br>Mulțumesc că ai spus „Da”. 💙";
+        subtext.innerHTML = "Promit că o să fie o zi specială, doar pentru tine.";
+    }, 800);
 
-        const x = Math.random() * maxX - maxX / 2;
-        const y = Math.random() * maxY - maxY / 2;
+    // Flori care se deschid
+    for (let i = 0; i < 12; i++) {
+        const flower = document.createElement("img");
+        flower.src = "image-removebg-preview (5).png"; // Imaginea unui crin deschis
+        flower.classList.add("lily");
+        flower.style.width = (80 + Math.random() * 80) + "px";
+        flower.style.opacity = 0.18 + Math.random() * 0.2;
+        flower.style.left = Math.random() * window.innerWidth + "px";
+        flower.style.top = Math.random() * window.innerHeight + "px";
+        flower.style.animationDuration = (6 + Math.random() * 4) + "s";
+        document.body.appendChild(flower);
+    }
+}
+// MOD SECRET PENTRU MOBIL
+const secretZone = document.querySelector(".secret-zone");
+const secretMessage = document.getElementById("secretMessage");
 
-        noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    });
+let secretShown = false;
 
-    function nextStep(answer) {
-        const text = document.getElementById("text");
+secretZone.addEventListener("touchstart", () => {
+    if (secretShown) return;
 
-        if (text.innerText.includes("Ești în viață")) {
-            if (answer === "yes") {
-                text.innerText = "Maria, ai vrea să fii Valentinul meu?";
-            } else {
-                text.innerText = "Atunci cum citești asta, fantomiță drăguță?";
-            }
-            return;
-        }
+    secretShown = true;
+    secretMessage.style.opacity = "1";
+    secretMessage.style.transform = "translateY(0)";
 
-        if (text.innerText.includes("Valentinul meu")) {
-            if (answer === "yes") {
-                text.innerText = "Yay! Abia aștept să te văd, Maria 💙";
-                spawnHearts();
-                noBtn.style.display = "none";
-                document.getElementById("yesBtn").style.display = "none";
-            } else {
-                text.innerText = "Nu poți spune nu… butonul fuge 😄";
-            }
-        }
+    // inimioare speciale
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💙";
+        heart.style.left = (window.innerWidth - 60) + "px";
+        heart.style.bottom = "20px";
+        heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+        heart.style.fontSize = (18 + Math.random() * 12) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
     }
 
-    function spawnHearts() {
-        for (let i = 0; i < 25; i++) {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "💙";
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.bottom = "0px";
-            heart.style.animationDelay = Math.random() * 2 + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 4000);
-        }
-    }
+    // ascunde mesajul după 10 secunde
+    setTimeout(() => {
+        secretMessage.style.opacity = "0";
+        secretMessage.style.transform = "translateY(20px)";
+    }, 10000);
+});
 </script>
 
 </body>
-
 </html>
