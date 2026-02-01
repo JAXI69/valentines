@@ -174,7 +174,7 @@
         height: 20px;
     }
 }
-/* Mesaj secret pentru mobil */
+    /* Mesaj secret pentru mobil */
 .secret-message {
     position: fixed;
     bottom: 20px;
@@ -195,12 +195,14 @@
 /* Doar pe mobil */
 @media (max-width: 480px) {
     .secret-zone {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 80px;
-        height: 80px;
-        z-index: 50;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1); /* TEMPORAR vizibil */
+    border: 1px dashed rgba(255,255,255,0.4); /* TEMPORAR vizibil */
+    z-index: 50;
     }
 }
 </style>
@@ -346,7 +348,6 @@ function romanticFinal() {
         document.body.appendChild(flower);
     }
 }
-// MOD SECRET PENTRU MOBIL
 const secretZone = document.querySelector(".secret-zone");
 const secretMessage = document.getElementById("secretMessage");
 
@@ -373,7 +374,6 @@ secretZone.addEventListener("touchstart", () => {
         setTimeout(() => heart.remove(), 5000);
     }
 
-    // ascunde mesajul după 10 secunde
     setTimeout(() => {
         secretMessage.style.opacity = "0";
         secretMessage.style.transform = "translateY(20px)";
